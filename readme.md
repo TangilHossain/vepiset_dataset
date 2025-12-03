@@ -49,11 +49,14 @@ pip install -r requirements.txt
 
    ```
    python mat2npy.py --mat_files_path source_mat_data_path --numpy_files_path mat_to_npy_dir_path 
+   python mat2npy.py --mat_files_path /Users/shawon/Downloads/Old/Thesis/opensource-dataset/MAT_Files --numpy_files_path /Users/shawon/Downloads/Old/Thesis/opensource-dataset/MAT_Files/npy
+
    ```
 2. Generate CSV Files Based On The Numpy Files Path
 
    ```
    python numpy2csv.py --numpy_files_path mat_to_npy_dir_path  --save_csv_file csv_file_path
+   python numpy2csv.py --numpy_files_path /Users/shawon/Downloads/Old/Thesis/opensource-dataset/MAT_Files/npy  --save_csv_file /Users/shawon/Downloads/Old/Thesis/opensource-dataset/MAT_Files/dataset.csv
    ```
 
 ## How to run
