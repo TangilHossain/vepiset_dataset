@@ -34,7 +34,7 @@ config.TRAIN.mix_precision = False
 
 # ----- MODEL SETTINGS -----
 config.MODEL = edict()
-config.MODEL.model_path = '/kaggle/working/checkpoints/'
+config.MODEL.model_path = './checkpoints/'
 config.MODEL.early_stop = 30
 config.MODEL.pretrained_model = None
 
@@ -43,10 +43,10 @@ config.MODEL.pretrained_model = None
 config.DATA = edict()
 
 # IMPORTANT: update this for Kaggle
-config.DATA.data_file = '/kaggle/working/dataset.csv'
+config.DATA.data_file = './dataset.csv'
 
 # If needed later
-config.DATA.data_root_path = '/kaggle/working/utils'
+config.DATA.data_root_path = './utils'
 
 
 # ----- SEED -----
