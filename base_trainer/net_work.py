@@ -244,14 +244,15 @@ class Train(object):
             else:
                 self.scheduler.step(roc_auc_score.avg)
 
-            # ensure directory exists
-            checkpoint_dir = os.path.dirname(cfg.MODEL.model_path)
-            os.makedirs(checkpoint_dir, exist_ok=True)
+            # save model
+            if not os.access(cfg.MODEL.model_path, os.F_OK):
+                os.makedirs(cfg.MODEL.model_path, exist_ok=True)
 
-            # save the model
-            current_model_saved_name = self.save_dir + '/fold%d_epoch_%d_val_rocauc_%.6f_loss_%.6f.pth' % (
-                self.fold, epoch, roc_auc_score.avg, summary_loss.avg
-            )
+            #### save the model every end of epoch
+            current_model_saved_name = self.save_dir + '/fold%d_epoch_%d_val_rocauc_%.6f_loss_%.6f.pth' % (self.fold,
+                                                                                                           epoch,
+                                                                                                           roc_auc_score.avg,
+                                                                                                           summary_loss.avg)
 
             logger.info('A model saved to %s' % current_model_saved_name)
             torch.save(self.model.module.state_dict(), current_model_saved_name)

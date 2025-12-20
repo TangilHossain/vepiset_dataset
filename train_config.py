@@ -34,7 +34,7 @@ config.TRAIN.mix_precision = False
 
 # ----- MODEL SETTINGS -----
 config.MODEL = edict()
-config.MODEL.model_path = '/kaggle/working/checkpoints/vepi_model.pth'
+config.MODEL.model_path = '/kaggle/working/checkpoints/'
 config.MODEL.early_stop = 30
 config.MODEL.pretrained_model = None
 
