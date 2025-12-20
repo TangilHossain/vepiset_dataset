@@ -12,7 +12,7 @@ config.TRAIN.validatiojn_batch_size = config.TRAIN.batch_size
 config.TRAIN.accumulation_batch_size = 128
 config.TRAIN.log_interval = 10
 config.TRAIN.test_interval = 1
-config.TRAIN.epoch = 30
+config.TRAIN.epoch = 1
 
 config.TRAIN.init_lr = 0.0005
 config.TRAIN.lr_scheduler = 'cos'

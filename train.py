@@ -6,7 +6,7 @@ import setproctitle
 setproctitle.setproctitle("spike_train")
 
 def main():
-    n_fold = 5
+    n_fold = 1
 
     def get_fold(n_fold=n_fold):
 
