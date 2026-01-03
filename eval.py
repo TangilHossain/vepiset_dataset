@@ -28,15 +28,18 @@ def get_data_iter(test_path=cfg.DATA.data_file):
     return valds
 
 
-def get_model(weight, device, is_base = 1):
-    channel_num = 0
-    if is_base == 0:
-        channel_num = 128
+def get_model(weight, device, is_base=1):
+    if not os.path.isfile(weight):
+        raise FileNotFoundError(
+            f"Weight file not found: {os.path.abspath(weight)}"
+        )
+
+    channel_num = 0 if is_base == 1 else 128
     model = Net(add_channel=channel_num).to(device)
+
     state_dict = torch.load(weight, map_location=device)
     model.load_state_dict(state_dict, strict=False)
     model.eval()
-
     return model
 
 
