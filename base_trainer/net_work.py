@@ -249,10 +249,10 @@ class Train(object):
                 os.makedirs(cfg.MODEL.model_path, exist_ok=True)
 
             #### save the model every end of epoch
-            current_model_saved_name = self.save_dir + '/fold%d_epoch_%d_val_rocauc_%.6f_loss_%.6f.pth' % (self.fold,
-                                                                                                           epoch,
-                                                                                                           roc_auc_score.avg,
-                                                                                                           summary_loss.avg)
+            current_model_saved_name = os.path.join(
+                self.save_dir,
+                f"fold{self.fold}_epoch{epoch}_rocauc{roc_auc_score.avg:.6f}_loss{summary_loss.avg:.6f}.pth"
+            )
 
             logger.info('A model saved to %s' % current_model_saved_name)
             torch.save(self.model.module.state_dict(), current_model_saved_name)
