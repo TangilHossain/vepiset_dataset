@@ -28,7 +28,7 @@ def get_data_iter(test_path=cfg.DATA.data_file):
     return valds
 
 
-def get_model(weight, device, is_base):
+def get_model(weight, device, is_base = 1):
     channel_num = 0
     if is_base == 0:
         channel_num = 128
